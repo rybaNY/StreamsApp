@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+echo "# StreamsApp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/rybaNY/StreamsApp.git
+git push -u origin master
+                
 ## Available Scripts
 
 In the project directory, you can run:
