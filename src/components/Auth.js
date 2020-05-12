@@ -37,14 +37,14 @@ class Auth extends Component {
     renderLoginButton = () => {
         if (!this.props.isSignedIn) {
             return (
-                <button onClick={this.signInClick} className='ui google button'>
+                <button onClick={this.signInClick} className='ui google button negative'>
                     <i className="google icon"></i>
                     Sign in with google
                 </button >
             )
         } if (this.props.isSignedIn) {
             return (
-                <button onClick={this.signOutClick} className='ui google button'>
+                <button onClick={this.signOutClick} className='ui google button negative'>
                     <i className="google icon"></i>
                     Sign out
                 </button >

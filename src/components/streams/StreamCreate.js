@@ -14,7 +14,6 @@ class StreamCreate extends React.Component {
                 <input {...input} autoComplete="off" />
                 <div className="ui error message">{meta.touched ? meta.error : null}</div>
             </div>
-
         )
     }
 
@@ -42,7 +41,6 @@ const validate = (formValues) => {
     if (!formValues.description) {
         errors.description = "Please enter a description"
     }
-
     return errors
 }
 
