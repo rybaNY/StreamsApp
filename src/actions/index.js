@@ -1,5 +1,6 @@
 import { SIGN_IN, SIGN_OUT, CREATE_STREAM, FETCH_STREAM, FETCH_STREAMS, EDIT_STREAM, DELETE_STREAM } from './types';
-import { streams } from '../apis/streams'
+import { streams } from '../apis/streams';
+import history from '../history'
 
 export const sign_in = (userId) => {
     return {
@@ -21,6 +22,7 @@ export const create_stream = formValues => async (dispatch, getState) => {
         type: CREATE_STREAM,
         payload: response.data
     })
+    history.push('/')
 }
 
 export const fetch_streams = () => async (dispatch) => {
@@ -40,18 +42,20 @@ export const fetch_stream = (id) => async dispatch => {
 }
 
 export const edit_stream = (id, formValues) => async dispatch => {
-    const response = await streams.put(`/streams/${id}`, formValues);
+    const response = await streams.patch(`/streams/${id}`, formValues);
     dispatch({
         type: EDIT_STREAM,
         payload: response.data
     })
+    history.push('/');
 }
 
 
 export const delete_stream = id => async dispatch => {
-    await streams.put(`/streams/${id}`);
+    await streams.delete(`/streams/${id}`);
     dispatch({
         type: DELETE_STREAM,
         payload: id
     })
+    history.push('/')
 }
